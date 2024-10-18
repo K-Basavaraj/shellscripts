@@ -38,7 +38,7 @@ echo -e "$Y Files: $FILES $N" # Output the found files
 
 # Check if any files were found
 if [ ! -z "$FILES" ]; then # here -z bydefult its true if Files is empty, ! makes it false
-    echo "Files are found" # Inform if no old files were found
+    echo -e "$G Files are found $N" # Inform if no old files were found
 else
-    echo "No files older than $NUM_DAYS"
+    echo -e "$R No files older than $NUM_DAYS $N"
 fi
