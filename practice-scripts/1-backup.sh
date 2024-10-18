@@ -33,7 +33,7 @@ if [ ! -d $DES_DIR ]; then
 fi
 
 # Find files in the source directory older than the specified number of days
-FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime $NUM_DAYS)
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +$NUM_DAYS)
 echo -e "$Y Files: $FILES $N" # Output the found files
 
 # Check if any files were found

@@ -45,7 +45,7 @@ if [ ! -d $DESTINATION_DIR]; then
 fi
 
 #if directory exist, find the files more than 14 days,
-FILES=$(find $SOURCE_DIR -name "*.log" -mtime $NUM_OF_DAYS)
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$NUM_OF_DAYS)
 echo "Files: $FILES"
 
 if [ ! -z $FILES ]; then #true if Files is empty, ! makes it false
