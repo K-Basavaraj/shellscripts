@@ -1,8 +1,8 @@
 #!/bin/bash
 
 DISK_USAGE=$(df -hT | grep xfs)
-DISK_THRESHOLD=5
-#read -p "enter the threshold value to check health: " DISK_THRESHOLD
+# DISK_THRESHOLD=5
+read -p "enter the threshold value to check health: " DISK_THRESHOLD
 
    while IFS= read -r line; do
         echo $line
