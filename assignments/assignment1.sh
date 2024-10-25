@@ -25,7 +25,9 @@ fi
 FILES=$(find "$SOURCE_DIR" -name "*.txt")
 echo "Files: $FILES"
 
-  # Declare an associative array to hold word counts
+# Loop through each file found
+for file in $FILES; do
+    # Declare an associative array to hold word counts
     declare -A word_count
 
     # Read the file and count words
