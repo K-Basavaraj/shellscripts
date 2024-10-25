@@ -27,19 +27,12 @@ echo "Files: $FILES"
 
 # Loop through each file found
 for file in $FILES; do
-    # Declare an associative array to hold word counts
-    declare -A word_count
-
-    # Read the file and count words
-    while read -r word; do
-        # Convert to lowercase and increment count
-        word=$(echo "$word" | tr '[:upper:]' '[:lower:]')
-        ((word_count["$word"]++))
-    done < <(tr -c '[:alnum:]' '[\n*]' < "$file")
-
-    # Display the top 5 most frequent words for this file
-    echo -e "$G Top 5 words in $file:$N"
-    for word in "${!word_count[@]}"; do
-        echo "${word_count[$word]} $word"
-    done | sort -nr | head -n 5
+  # Process the file and get the top 5 most frequent words
+tr -c '[:alnum:]' '[\n*]' < "$FILES" |   # Replace non-alphanumeric characters with newlines
+tr '[:upper:]' '[:lower:]' |                # Convert to lowercase
+grep -v '^$' |                               # Remove empty lines
+sort |                                       # Sort words
+uniq -c |                                    # Count occurrences
+sort -nr |                                   # Sort numerically in reverse
+head -n 5                                    # Display top 5
 done
