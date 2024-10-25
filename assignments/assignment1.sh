@@ -35,5 +35,6 @@ sort |                                       # Sort words
 uniq -c |                                    # Count occurrences
 sort -nr |                                   # Sort numerically in reverse
 head -n 5                                    # Display top 5
-awk '{printf "%-5d %s\n", $1, $2}'           # Format output nicely
 done
+
+awk '{printf "%-5d %s\n", $1, $2}'           # Format output nicely
