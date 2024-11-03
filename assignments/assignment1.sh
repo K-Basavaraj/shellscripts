@@ -29,6 +29,7 @@ echo "Files: $FILES"
 for file in $FILES; do
 
 tr -c '[:alnum:]' '[\n*]' < "$file" | tr '[:upper:]' '[:lower:]' |  # Replace non-alphanumeric characters with newlines and convert to lowercase.
+sort |                                                              #Sort words
 head -n 5                                                          # Display top 5
 
 done
@@ -40,3 +41,14 @@ done
 # sort -nr |                                   # Sort numerically in reverse
 # head -n 5                                    # Display top 5
 # done
+
+: '
+
+sort: Sorts the words alphabetically.
+
+uniq -c: Counts occurrences of each unique word and prefixes the count.
+
+sort -nr: Sorts the output numerically in reverse order (highest count first).
+
+head -n 5: Displays the top 5 lines from the sorted output.
+'
