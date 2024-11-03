@@ -29,8 +29,8 @@ echo "Files: $FILES"
 for file in $FILES; do
 
 tr -c '[:alnum:]' '[\n*]' < "$file" | tr '[:upper:]' '[:lower:]' |  # Replace non-alphanumeric characters with newlines and convert to lowercase.
-sort |                                                              #Sort words
-head -n 5                                                          # Display top 5
+sort | uniq -c |                                                    #Sort words and # Count occurrences
+head -n 5                                                           # Display top 5
 
 done
 
