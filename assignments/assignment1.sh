@@ -34,15 +34,9 @@ sort -nr | head -n 5                                                 # Sort nume
 
 done
 
-
-# # grep -v '^$' |                               # Remove empty lines
-# # sort |                                       # Sort words
-# uniq -c |                                    # Count occurrences
-# sort -nr |                                   # Sort numerically in reverse
-# head -n 5                                    # Display top 5
-# done
-
 : '
+grep -v '^$' |                               # Remove empty lines
+
 sort: Sorts the words alphabetically.
 
 uniq -c: Counts occurrences of each unique word and prefixes the count.
