@@ -28,7 +28,7 @@ echo "Files: $FILES"
 # Loop through each file found
 for file in $FILES; do
 
-tr -c '[:alnum:]' '[\n*]' < "$file" | tr '[:upper:]' '[:lower:]' |
+tr -c '[:alnum:]' '[\n*]' < "$file" | tr '[:upper:]' '[:lower:]' 
 
 done
 
