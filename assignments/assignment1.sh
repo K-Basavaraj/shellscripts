@@ -28,13 +28,12 @@ echo "Files: $FILES"
 # Loop through each file found
 for file in $FILES; do
 
-tr -c '[:alnum:]' '[\n*]' < "$file" | tr '[:upper:]' '[:lower:]' 
+tr -c '[:alnum:]' '[\n*]' < "$file" | tr '[:upper:]' '[:lower:]' |  # Replace non-alphanumeric characters with newlines and convert to lowercase.
+head -n 5                                                          # Display top 5
 
 done
 
-#   # Process the file and get the top 5 most frequent words
-# # tr -c '[:alnum:]' '[\n*]' < "$FILES" |   # Replace non-alphanumeric characters with newlines
-# # tr '[:upper:]' '[:lower:]' |                # Convert to lowercase
+
 # # grep -v '^$' |                               # Remove empty lines
 # # sort |                                       # Sort words
 # uniq -c |                                    # Count occurrences
