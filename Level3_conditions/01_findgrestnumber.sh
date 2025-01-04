@@ -20,11 +20,3 @@ enter the value of b: 5
 9 is greatest in the given number
 '
 
-# read -p "Enter the FirstNumber: " Number1
-# read -p  "Enter the SecondNumber: " Number2
-
-# if [ $Number1 -gt $Number2 ]; then
-#     echo "Number:$Number1 is greter than $Number2"
-# else
-#     echo "Number:$Number1 is less than $Number2"
-# fi
