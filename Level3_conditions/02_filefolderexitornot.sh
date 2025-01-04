@@ -10,13 +10,13 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
-if [ -d $DIRECTORY]; then
+if [ -d $DIRECTORY ]; then
     echo -e "$DIRECTORY Exist.."
 else
     echo -e "$DIRECTORY does not exist...Please check"
 fi
 
-if [ -d $FILE]; then
+if [ -d $FILE ]; then
     echo -e "$FILE Exist..."
 else
     echo "$FILE does not exist...Please check"
