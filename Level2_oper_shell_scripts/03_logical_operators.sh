@@ -1,31 +1,31 @@
-#!/bin/bash
+!/bin/bash
 
-# read -p "enter the value of a: " a
-# read -p "read the value of b: " b
-# # Checking if characters are equal
-# [[ $a == $b ]] && echo "true" || echo "false"
+read -p "enter the value of a: " a
+read -p "read the value of b: " b
+# Checking if characters are equal
+[[ $a == $b ]] && echo "true" || echo "false"
 
-# (( $a!=$b )) && echo "true" || echo "false"
+(( $a!=$b )) && echo "true" || echo "false"
 
-# (( $a>$b)) && echo "true" || echo "false"
+(( $a>$b)) && echo "true" || echo "false"
 
-# (( $a<$b)) && echo "true" || echo "false"
+(( $a<$b)) && echo "true" || echo "false"
 
-# (( $a<=$b )) && echo "true" || echo "false"
+(( $a<=$b )) && echo "true" || echo "false"
 
-# (( $a>=$b )) && echo "true" || echo "false"
+(( $a>=$b )) && echo "true" || echo "false"
 
-# :'
-# output
-# enter the value of a: 5
-# read the value of b: 6
-# false
-# true
-# false
-# true
-# true
-# false
-# '
+:'
+output
+enter the value of a: 5
+read the value of b: 6
+false
+true
+false
+true
+true
+false
+'
 #=================================================================================================================================
 
 read -p "enter the string1: " c
