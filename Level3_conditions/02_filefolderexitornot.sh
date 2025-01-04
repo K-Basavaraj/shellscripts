@@ -16,7 +16,7 @@ else
     echo -e "$DIRECTORY does not exist...Please check"
 fi
 
-if [ -d $FILE ]; then
+if [ -f $FILE ]; then
     echo -e "$FILE Exist..."
 else
     echo "$FILE does not exist...Please check"
