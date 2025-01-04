@@ -22,3 +22,23 @@ if [ ! -f $FILE ]; then
 else
    echo -e "$FILE Exist..."
 fi
+
+: '
+output:
+sh 04_validateargument.sh
+Error: You must provide both a directory and a file as arguments.
+Usage: 04_validateargument.sh <directory> <file>
+
+sh 04_validateargument.sh /home/ec2-user/myfolder/
+Error: You must provide both a directory and a file as arguments.
+Usage: 04_validateargument.sh <directory> <file>
+
+sh 04_validateargument.sh /home/ec2-user/myfolder/ /home/ec2-user/myfolder/myfile.txt
+/home/ec2-user/myfolder/ Exist..
+/home/ec2-user/myfolder/myfile.txt Exist...
+
+sh 04_validateargument.sh /home/ec2-user/myfolder1/ /home/ec2-user/myfolder/myfile1.txt
+/home/ec2-user/myfolder1/ does not exist...Please check
+/home/ec2-user/myfolder/myfile1.txt does not exist...Please check
+
+'
