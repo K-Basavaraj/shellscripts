@@ -4,12 +4,6 @@
 DIRECTORY=$1
 FILE=$2
 
-#2)Validate Input: if the argument is less than 2 it will exit with usage message function.
-#if you give include 2 and above 3 Not an issue. $# is How many variables/args passed to the script:
-if [ $# -lt 2 ]; then
-    exit 1
-fi
-
 if [ -d $DIRECTORY ]; then
     echo -e "$DIRECTORY Exist.."
 else
@@ -21,3 +15,10 @@ if [ -f $FILE ]; then
 else
     echo "$FILE does not exist...Please check"
 fi
+
+: '
+output: 
+sh 02_filefolderexitornot.sh /home/ec2-user/myfolder/ /home/ec2-user/myfolder/myfile.txt
+/home/ec2-user/myfolder/ Exist..
+/home/ec2-user/myfolder/myfile.txt Exist...
+'
