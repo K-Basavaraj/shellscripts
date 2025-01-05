@@ -23,6 +23,7 @@ In child shell, before export:
 # ==> Since global_var was not exported in the parent shell, it is not available in the child shell.     
 #==> How to Make It Global To make global_var a global variable (accessible in child shells), you must export it:     
 
+# Export the global variable to make it an environment variable
 export var1
 bash -c 'echo "In child shell, after export: $var1"'
 exit
@@ -48,5 +49,23 @@ With export: The variable is made available to child processes spawned from the 
 3) When working in multiple environments (development, staging, production), you may need to use different sets of environment
 variables depending on the environment. By exporting variables in the parent shell, you can pass different configurations to child
 shells.
+
+4)
+Scope:
+Global Variables: Accessible only within the current shell session (unless exported).
+Environment Variables: Accessible in the current shell session and any child processes or subshells (after exporting).
+
+Child Processes:
+Global Variables (without export): Not available to child processes (subshells) unless explicitly passed or exported.
+Environment Variables: Available to child processes automatically after export.
+
+Usage:
+Global Variables: Can be used within the shell session but are not automatically passed to child processes.
+Environment Variables: Used for passing system-wide configurations or settings to subprocesses or programs.
+
+
+5) 
+Global variables are accessible both inside and outside functions in a script.
+Local variables are restricted to the function where they are defined and cannot be accessed outside that function.
 '
 #================================================================================================================================
