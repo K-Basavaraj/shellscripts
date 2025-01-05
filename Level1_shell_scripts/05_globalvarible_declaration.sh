@@ -13,9 +13,10 @@ This makes it a local variable, meaning it exists only in the current (parent) s
 global_var="I am global"
 echo "Global variable before export: $global_var" #output: Global variable before export: I am global
 
-
-bash                        # Start a child shell
-echo $global_var           # Access the Variable in the Child Shell  Output: Nothing
+# Start a child shell (no export)
+bash -c 'echo "In child shell, before export: $global_var"'  # Output: Nothing (no export)
+# bash                        # Start a child shell
+# echo $global_var           # Access the Variable in the Child Shell  Output: Nothing
 : '
 ==> A new shell (child shell) starts. This shell does not inherit local variables from the parent shell
 unless they are explicitly exported.
