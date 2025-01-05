@@ -10,7 +10,7 @@
 Here, global_var as variblename is declared, but it is not exported.
 This makes it a local variable, meaning it exists only in the current (parent) shell.
 '
-export global_var="I am global"
+global_var="I am global"
 echo "Global variable before export: $global_var" #output: Global variable before export: I am global
 
 
@@ -37,7 +37,7 @@ It exists only in the parent shell, making it a local variable.
 How to Make It Global
 To make global_var a global variable (accessible in child shells), you must export it:
 '
-#export global_var="I am global"
+export global_var="I am global"
 bash                      # Start a child shell
 echo $global_var          # Output: I am global
 
