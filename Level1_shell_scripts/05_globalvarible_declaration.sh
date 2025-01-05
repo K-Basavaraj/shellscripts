@@ -46,4 +46,4 @@
 
 var1="I am global"
 echo "Global variable before export: $var1" #output: Global variable before export: I am global
-bash -c 'echo "In child shell, before export: $global_var"'
+bash -c 'echo "In child shell, before export: $var1"'
