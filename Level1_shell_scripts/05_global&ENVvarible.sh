@@ -5,6 +5,16 @@
 # To make a variable accessible in child shells (subshells), it must be explicitly exported using the 'export' command.
 # ==> What happens without export?: If you start a new shell (a child shell), this variable won’t be accessible to 
 #      that shell unless you explicitly export it.
+
+# Environment variables are special global variables that are accessible to both the current shell session 
+# and any child processes or subshells spawned from it. 
+# These variables are often used to store system-wide configuration settings or paths used by different programs.
+
+# To make a variable an environment variable, you must explicitly use the 'export' command.
+# ==> What happens with export?: When a variable is exported using the 'export' command, it is automatically 
+#      inherited by child processes and subshells. This allows the variable to be accessible in any program 
+#      or script that is called from the current shell.
+
 #==============================================================================================================================
 
 #  Declare a Variable in the Parent Shell
