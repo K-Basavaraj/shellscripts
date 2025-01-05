@@ -38,8 +38,9 @@ How to Make It Global
 To make global_var a global variable (accessible in child shells), you must export it:
 '
 export global_var="I am global"
-bash                      # Start a child shell
-echo $global_var          # Output: I am global
+#bash                      # Start a child shell
+bash -c 'echo "In child shell, after export: $global_var"'
+# echo $global_var          # Output: I am global
 
 
 # #Use the printenv or env command to display only environment variables (global variables that have been exported).
