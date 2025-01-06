@@ -26,11 +26,11 @@ if [ $USERID -ne 0 ]; then
     echo "please run the script with root privilages"
     exit 1 #here user given 1 so shell undertand that its a filure. it underdatnd that have to come out of the progrm
 fi
-#Note: when userid is 1 not equal to 0 so, its true then it gives messege and exit it must be 0 equal to 0 to go to next.
+#Note: when userid is 1 not equal to 0 so, its true then it gives messege and exit. so, it must be 0 equal to 0 to go to next.
+#--> echo $? to check status of previous command which is  success or failure of the previous command if success its 0 if its fail its a 1-127.
 
-#4. check already installed or not, if installed tell the user it is already
-dnf install git -y
-if [ $? -ne 0 ]; then
+dnf list installed git -y   
+if [ $? -ne 0 ]; then 
     echo "Git is not installed, going to install it.."
     dnf install git -y
     if [ $? -ne 0 ]; then
