@@ -22,7 +22,7 @@ USERID=$(id -u)
 #sh installmysql.sh         output: userID is: 1001 if you run this script as normal the uesr id is sum number but
 #sudo sh installmysql.sh    output: userID is: 0 If you run this script with sudo <script_name> it will run with root privileges.
 
-if [ $USERID -ne 0]; then
+if [ $USERID -ne 0 ]; then
     echo "please run the script with root privilages"
     exit 1 #here user given 1 so shell undertand that its a filure. it underdatnd that have to come out of the progrm
 fi
