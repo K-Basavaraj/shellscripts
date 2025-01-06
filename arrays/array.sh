@@ -37,3 +37,39 @@ case $select in
         echo "Invalid selection. Please try again."
         ;;
 esac
+
+
+
+
+# # Array (indexed array)
+# array_var=(1 2 3 4 5)
+# echo "Array: ${array_var[@]}"
+
+# # Associative Array (similar to a Map)
+# declare -A map_var
+# map_var["name"]="Alice"
+# map_var["age"]=30
+# echo "Map: Name=${map_var["name"]}, Age=${map_var["age"]}"
+
+# # Set (using an associative array to mimic a set)
+# declare -A set_var
+# set_var["item1"]=1
+# set_var["item2"]=1
+# set_var["item3"]=1
+# echo "Set: ${!set_var[@]}"
+
+# # ArrayList (similar to an array, but for illustrative purposes)
+# arraylist_var=("apple" "banana" "cherry")
+# echo "ArrayList: ${arraylist_var[@]}"
+
+# # Print all variables
+# echo "All data types:"
+# echo "Integer: $int_var"
+# echo "Float: $float_var"
+# echo "Decimal: $decimal_var"
+# echo "Long: $long_var"
+# echo "String: $string_var"
+# echo "Array: ${array_var[@]}"
+# echo "Map: Name=${map_var["name"]}, Age=${map_var["age"]}"
+# echo "Set: ${!set_var[@]}"
+# echo "ArrayList: ${arraylist_var[@]}"
