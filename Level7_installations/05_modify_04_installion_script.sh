@@ -4,7 +4,7 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 
-USER_ID=$((id - u))
+USER_ID=$((id -u))
 
 CHECK_ROOT() {
     if [ $USER_ID -ne 0 ]; then
