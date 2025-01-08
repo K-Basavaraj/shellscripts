@@ -1,4 +1,4 @@
-#/bin/bash 
+#!/bin/bash 
 
 # Declare an empty array
 numbers=()
