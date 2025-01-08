@@ -1,8 +1,14 @@
 #!/bin/bash
+#if you dont use -e you wont see the colors for the words.
 USER_ID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+
+
+My_name=Basavaraj
+echo -e "\n$My_name is $G success.. Check it.$R Harmful... $N"
+
 
 CHECK_ROOT() {
 if [ $USER_ID -ne 0 ]; then
