@@ -42,4 +42,26 @@ for package in $@; do
     validate $? "Installing $package"
 done
 
+: '
+output: 
+sh 05_modify_04_installion_script.sh
+please run the script with root privilages
+
+sudo sh 05_modify_04_installion_script.sh git mysql nginx
+Installed Packages
+git.x86_64                                                     2.43.5-2.el9_5                                                      @rhel-9-appstream-rhui-rpms
+ git is already installed nothing to do..
+
+Error: No matching Packages to list
+ mysql is not installed..   going to install it..
+Complete!
+Installing mysql is SUCESSFULL..
+
+Error: No matching Packages to list
+ nginx is not installed..   going to install it..
+Complete!
+Installing nginx is SUCESSFULL..
+'
+
+
 
