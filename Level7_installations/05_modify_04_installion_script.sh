@@ -6,6 +6,13 @@ N="\e[0m"
 
 USER_ID=$((id - u))
 
+CHECK_ROOT() {
+    if [ $USER_ID -ne 0 ]; then
+        echo "please run the script with root privilages"
+        exit 1
+    fi
+}
+
 validate() {
     if [ $1 -ne 0 ]; then
         echo "$2 is FAILED.. checkit."
@@ -23,6 +30,9 @@ validate_installation() {
     fi
 
 }
+
+
+CHECK_ROOT
 
 for package in $@; do
     dnf list installed $package
