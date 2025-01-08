@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER_ID=$((id -u))
+USER_ID=$(id -u)
 
 : '
 you calso keep this checking root user in a function also 

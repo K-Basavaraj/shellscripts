@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-USER_ID=$((id -u)) #1) This line runs and assigns the current user's ID to USER_ID.
+USER_ID=$(id -u) #1) This line runs and assigns the current user's ID to USER_ID.
 
 validate(){
   echo "exit status: $1" #5) This line runs, where $1 is the exit status that was passed (which is 0). It will print: exit status: 0.

@@ -5,12 +5,10 @@ G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
 
-CHECK_ROOT() {
     if [ $USER_ID -ne 0 ]; then
         echo "please run the script with root privilages"
         exit 1
     fi
-}
 
 validate() {
     if [ $1 -ne 0 ]; then
@@ -19,8 +17,6 @@ validate() {
         echo -e "$2 is $G Sucessfull...$N"
     fi
 }
-
-CHECK_ROOT
 
 : '
 # sh installing.sh git mysql postfix nginx  like this way we can pass argumnets.
