@@ -44,3 +44,12 @@ cat /home/ec2-user/output.txt
 '
 
 ls -l /home/ec2-user 2> /home/ec2-user/output.txt #here i given correct command with error num
+: '
+Here the success output will print on the terminal and it did not saved the output in the file.
+
+cat /home/ec2-user/output.txt
+'
+
+lls -l /home/ec2-user &> /home/ec2-user/output.txt 
+ls -l /home/ec2-user &>> /home/ec2-user/output.txt  #here it will append the output in that file it wont ovewrite.
+
