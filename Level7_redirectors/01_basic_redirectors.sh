@@ -21,4 +21,4 @@ drwxr-xr-x 3 ec2-user ec2-user 26 Jan  9 02:14 practice
 drwxr-xr-x 2 ec2-user ec2-user  6 Jan  9 02:21 test
 '
 
-ls -l /home/ec2-user/  > output.txt
+ls -l /home/ec2-user/  > /home/ec2-user/output.txt
