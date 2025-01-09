@@ -28,21 +28,22 @@ if [ $# -eq 0 ]; then #here $# count the arguments example: GIt nginx etc..
     usage
 fi
 
+echo "Script started executing at: $(date)" | tee -a $LOG_FILE
 
 validate_list() {
     if [ $1 -ne 0 ]; then
-        echo -e "$R $2 is not installed..$N $Y going to installe it..$N" | tee -a $LOG_FILE
+        echo -e "$2 $R is not installed..$N $Y going to installe it.. $N" | tee -a $LOG_FILE
     else
-        echo -e "$G $2 is already installed..nothing to do.. $N" | tee -a $LOG_FILE
+        echo -e "$2 $G is already installed..nothing to do.. $N" | tee -a $LOG_FILE
     fi
 }
 
 installing() {
     if [ $1 -ne 0 ]; then
-        echo -e "$R $2 is FAILED...Please check it..$N" | tee -a $LOG_FILE
+        echo -e "$2 $R is FAILED...Please check it.. $N" | tee -a $LOG_FILE
         exit 1
     else
-        echo "$G $2 is SUCESSFULY INSTALLED..$N" | tee -a $LOG_FILE
+        echo "$2 $G is SUCESSFULY INSTALLED.. $N" | tee -a $LOG_FILE
     fi
 }
 
