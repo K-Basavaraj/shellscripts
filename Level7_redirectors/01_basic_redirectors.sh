@@ -6,4 +6,4 @@
 &--> for both sucess and failure.
 '
 
-ls -l 
+ls -l /home/ec2-user/
