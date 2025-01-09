@@ -37,3 +37,10 @@ cat /home/ec2-user/output.txt
 
 
 llls -l /home/ec2-user 2> /home/ec2-user/output.txt #here i given 2 which is error
+: '
+Here only the error output will save in the file. not in the terminal.
+cat /home/ec2-user/output.txt
+01_basic_redirectors.sh: line 39: llls: command not found
+'
+
+ls -l /home/ec2-user 2> /home/ec2-user/output.txt #here i given correct command with error num
