@@ -25,3 +25,15 @@ drwxr-xr-x 2 ec2-user ec2-user   6 Jan  9 03:56 test
 '
 
 llls -l /home/ec2-user 1> /home/ec2-user/output.txt # here ls command is wrong 
+: '
+Here output is not saved in the output.txt file eventhough 1 is sucess but command is wrong 
+so it prints on terminal. only success output will save on the file.
+sh 01_basic_redirectors.sh
+01_basic_redirectors.sh: line 27: llls: command not found
+
+cat /home/ec2-user/output.txt
+
+'
+
+
+llls -l /home/ec2-user 2> /home/ec2-user/output.txt #here i given 2 which is error
