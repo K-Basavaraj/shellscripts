@@ -1,20 +1,23 @@
-#!/bin/bash 
+#!/bin/bash
 : '
-> std input 
-1--> is sucess 
-2--> is failure
-&--> for both sucess and failure.
+Redirecting output:
+1 --> Standard output (Success)
+2 --> Standard error (Failure)
+& --> Both standard output and standard error.
 '
 
+# Create directories
 mkdir -p /home/ec2-user/dev /home/ec2-user/test
 
+# Create a file
 touch /home/ec2-user/output.txt
 
+# Save the output of the `ls` command to the file instead of displaying it in the terminal
 ls -l /home/ec2-user 1> /home/ec2-user/output.txt
 
 : '
-Here output of ls command will save on the output.txt insted of terminal
-output: 
+The output of the `ls` command will be saved in the file `output.txt`.
+Output Example:
 cat /home/ec2-user/output.txt
 total 4
 -rw-r--r-- 1 ec2-user ec2-user 123 Jan  9 03:54 details.txt
@@ -24,32 +27,50 @@ drwxr-xr-x 3 ec2-user ec2-user  26 Jan  9 03:52 practice
 drwxr-xr-x 2 ec2-user ec2-user   6 Jan  9 03:56 test
 '
 
-llls -l /home/ec2-user 1> /home/ec2-user/output.txt # here ls command is wrong 
+# Using an incorrect command to demonstrate error handling
+llls -l /home/ec2-user 1> /home/ec2-user/output.txt
 : '
-Here output is not saved in the output.txt file eventhough 1 is sucess but command is wrong 
-so it prints on terminal. only success output will save on the file.
-sh 01_basic_redirectors.sh
-01_basic_redirectors.sh: line 27: llls: command not found
-
+Here, the command is incorrect (`llls` instead of `ls`), so no output is saved to `output.txt`.
+The error will print on the terminal instead.
+Output Example:
+sh script_name.sh
+script_name.sh: line 27: llls: command not found
 cat /home/ec2-user/output.txt
-
+<empty>
 '
 
-
-llls -l /home/ec2-user 2> /home/ec2-user/output.txt #here i given 2 which is error
+# Save only error output to the file
+llls -l /home/ec2-user 2> /home/ec2-user/output.txt
 : '
-Here only the error output will save in the file. not in the terminal.
+Only the error output is saved in the file. The terminal does not display the error.
+Output Example:
 cat /home/ec2-user/output.txt
-01_basic_redirectors.sh: line 39: llls: command not found
+script_name.sh: line 39: llls: command not found
 '
 
-ls -l /home/ec2-user 2> /home/ec2-user/output.txt #here i given correct command with error num
+# Use the correct command, but redirect errors to the file
+ls -l /home/ec2-user 2> /home/ec2-user/output.txt
 : '
-Here the success output will print on the terminal and it did not saved the output in the file.
-
+The correct command executes successfully, so the output displays on the terminal.
+The file does not store the success output, as only errors are redirected to the file.
 cat /home/ec2-user/output.txt
+<empty>
 '
 
-lls -l /home/ec2-user &> /home/ec2-user/output.txt 
-ls -l /home/ec2-user &>> /home/ec2-user/output.txt  #here it will append the output in that file it wont ovewrite.
+# Redirect both success and error outputs to the file (overwrite mode)
+lls -l /home/ec2-user &> /home/ec2-user/output.txt
 
+# Redirect both success and error outputs to the file (append mode)
+ls -l /home/ec2-user &>> /home/ec2-user/output.txt
+: '
+Both success and error outputs are saved in the file. The second command appends to the file instead of overwriting it.
+Output Example:
+cat /home/ec2-user/output.txt
+script_name.sh: line 53: lls: command not found
+total 8
+-rw-r--r-- 1 ec2-user ec2-user 123 Jan  9 03:54 details.txt
+drwxr-xr-x 2 ec2-user ec2-user   6 Jan  9 03:56 dev
+-rw-r--r-- 1 ec2-user ec2-user  57 Jan  9 04:09 output.txt
+drwxr-xr-x 3 ec2-user ec2-user  26 Jan  9 03:52 practice
+drwxr-xr-x 2 ec2-user ec2-user   6 Jan  9 03:56 test
+'
