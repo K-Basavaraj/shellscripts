@@ -25,7 +25,7 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 
 # Redirect outputs and errors to the log file
 echo "Hello How are you?" &> $LOG_FILE
-echo "I am fine thank you!.."
+echo "I am fine thank you!.." &> $LOG_FILE
 # The `&>` operator redirects both standard output and standard error to the log file.
 
 ls -l /home/ec2-user/ &>> $LOG_FILE
