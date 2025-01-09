@@ -24,8 +24,8 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 # Example: `02_output_logfile_redirctors-2025-01-09-06-02-12.log`
 
 # Redirect outputs and errors to the log file
-echo "Hello How are you?" &> $LOG_FILE
-echo "I am fine thank you!.." &> $LOG_FILE
+echo "Hello How are you?" &>> $LOG_FILE
+echo "I am fine thank you!.." &>> $LOG_FILE
 # The `&>` operator redirects both standard output and standard error to the log file.
 
 ls -l /home/ec2-user/ &>> $LOG_FILE
