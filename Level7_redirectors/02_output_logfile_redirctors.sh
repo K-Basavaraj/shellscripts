@@ -45,7 +45,7 @@ Explanation:
 Example:
 After running the script:
 Navigate to the folder: `cd /var/log/shell-script/`
-List the contents: `ls -l`
+List the contents: `ls -lt`
 
 Output Example:
 -rw-r--r-- 1 root root 366 Jan  9 06:02 02_output_logfile_redirctors-2025-01-09-06-02-12.log
@@ -55,6 +55,7 @@ cat 02_output_logfile_redirctors-2025-01-09-06-02-12.log
 
 Log file contents:
 Hello How are you?
+I am fine thank you!..
 total 8
 -rw-r--r-- 1 ec2-user ec2-user 123 Jan  9 03:54 details.txt
 drwxr-xr-x 2 ec2-user ec2-user   6 Jan  9 03:56 dev
