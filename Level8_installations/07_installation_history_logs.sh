@@ -4,6 +4,7 @@ G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
 
+# Create a file structure /var/log/shell-script/installredirecttologs-<timestamp>.log
 LOGS_FOLDER="/var/log/shell-script/"
 mkdir -p $LOGS_FOLDER
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1) 
@@ -54,3 +55,20 @@ for package in $@; do
     dnf install $package -y  &>>$LOG_FILE
     installing $? "$package"
 done
+
+: '
+sudo sh 07_installation_history_logs.sh mysql nginx
+
+outut: 
+Script started executing at: Thu Jan  9 17:11:09 UTC 2025
+mysql  is not installed..  going to installe it..
+mysql  is SUCESSFULY INSTALLED..
+nginx  is not installed..  going to installe it..
+nginx  is SUCESSFULY INSTALLED..
+
+logfiles:
+/var/log/shell-script ]$ ls -l
+total 12
+-rw-r--r-- 1 root root 5115 Jan  9 17:11 07_installation_history_logs-2025-01-09-17-11-09.log
+-rw-r--r-- 1 root root  429 Jan  9 17:11 07_installation_history_logs-2025-01-09-17-11-48.log
+'
