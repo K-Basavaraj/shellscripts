@@ -32,18 +32,18 @@ echo "Script started executing at: $(date)" | tee -a $LOG_FILE
 
 validate_list() {
     if [ $1 -ne 0 ]; then
-        echo -e "$2 ${R} is not installed..${N} $Y going to installe it.. ${N}" | tee -a $LOG_FILE
+        echo -e "$2 $R is not installed..$N $Y going to installe it.. $N" | tee -a $LOG_FILE
     else
-        echo -e "$2 ${G} is already installed..nothing to do.. ${N}" | tee -a $LOG_FILE
+        echo -e "$2 $G is already installed..nothing to do.. $N" | tee -a $LOG_FILE
     fi
 }
 
 installing() {
     if [ $1 -ne 0 ]; then
-        echo -e "$2 $R is FAILED...Please check it.. $N" | tee -a $LOG_FILE
+        echo -e "$2 ${R} is FAILED...Please check it.. ${N}" | tee -a $LOG_FILE
         exit 1
     else
-        echo "$2 $G is SUCESSFULY INSTALLED.. $N" | tee -a $LOG_FILE
+        echo "$2 ${G} is SUCESSFULY INSTALLED.. ${N}" | tee -a $LOG_FILE
     fi
 }
 
