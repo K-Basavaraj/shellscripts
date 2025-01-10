@@ -70,7 +70,7 @@ mysql-server  is not installed..  going to installe it..
 Installing mysql server..  is SUCESSFULL..
 enables mysql server..  is SUCESSFULL..
 started mysql server..  is SUCESSFULL..
- MYSQL ROOT PASSWORD IS ALREADY SETUP.. SKIPPING #Idompotency once you setup it show not change
+ MYSQL ROOT PASSWORD IS ALREADY SETUP.. SKIPPING #Idompotency if you run the script infintetimes, it should give the same result.
 
   sudo sh mysql.sh
 Script started executing at: Fri Jan 10 01:39:32 UTC 2025
