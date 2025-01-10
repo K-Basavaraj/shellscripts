@@ -32,8 +32,8 @@ versions() {
     fi
 }
 
-dnf module list nodejs &>>$LOG_FILE
-versions $? "disabled nodejs:$version"
+# dnf module list nodejs &>>$LOG_FILE
+# versions $? "disabled nodejs:$version"
 
 
 
