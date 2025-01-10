@@ -63,4 +63,20 @@ else
     echo -e "$G MYSQL ROOT PASSWORD IS ALREADY SETUP..$Y SKIPPING $N" | tee -a $LOG_FILE
 fi
 
+: '
+ sudo sh mysql.sh
+Script started executing at: Fri Jan 10 01:39:02 UTC 2025
+mysql-server  is not installed..  going to installe it..
+Installing mysql server..  is SUCESSFULL..
+enables mysql server..  is SUCESSFULL..
+started mysql server..  is SUCESSFULL..
+ MYSQL ROOT PASSWORD IS ALREADY SETUP.. SKIPPING #Idompotency once you setup it show not change
 
+  sudo sh mysql.sh
+Script started executing at: Fri Jan 10 01:39:32 UTC 2025
+mysql-server  is already installed..nothing to do..
+Installing mysql server..  is SUCESSFULL..
+enables mysql server..  is SUCESSFULL..
+started mysql server..  is SUCESSFULL..
+ MYSQL ROOT PASSWORD IS ALREADY SETUP.. SKIPPING
+'
