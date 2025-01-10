@@ -33,7 +33,7 @@ list() {
     fi
 }
 
-validation() {
+validate() {
     if [ $1 -ne 0 ]; then
         echo -e "$2 $R is FAILED.. PLEASE CHECKIT..$N" | tee -a $LOG_FILE
         exit 1
@@ -54,7 +54,7 @@ validate $? "enables mysql server.."
 systemctl start mysqld &>>$LOG_FILE
 validate $? "started mysql server.."
 
-mysql -h mysql.basavadevops81s.online -u root -pExpenseApp@1 -e 'show databasess;' &>>$LOG_FILE #command to connect mysql server 
+mysql -h mysql.basavadevops81s.online -u root -pExpenseApp@1 -e 'show databases;' &>>$LOG_FILE #command to connect mysql server 
 if [ $? -ne 0 ]; then
     echo -e "$Y MYSQL root password is not setup, setting now $N" &>>$LOG_FILE
     mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE  # default root password in order to start using the database service
