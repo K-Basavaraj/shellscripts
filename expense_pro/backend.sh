@@ -4,15 +4,15 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-# LOGS_FOLDER="/var/log/expense-pro/"
-# mkdir -p $LOGS_FOLDER
+LOGS_FOLDER="/var/log/expense-pro/"
+mkdir -p $LOGS_FOLDER
 
-# SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-# TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
-# LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 
-# USER_ID=$(id -u)
+USER_ID=$(id -u)
 
 CHECK_ROOT() {
     if [ $USER_ID -ne 0 ]; then
