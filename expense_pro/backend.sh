@@ -33,14 +33,15 @@ VALIDATE() {
     fi
 }
 
-dnf module disable nodejs -y
-VALIDATE $? "Disable defult nodesjs" &>> $LOG_FILE
+dnf module disable nodejs -y &>> $LOG_FILE
+VALIDATE $? "Disable defult nodesjs" 
 
 
-dnf module enable nodejs -y
-VALIDATE $? "Enabled nodejs:22" &>> $LOG_FILE
+dnf module enable nodejs -y &>> $LOG_FILE
+VALIDATE $? "Enabled nodejs:22" 
 
-dnf install nodejs -y 
-VALIDATE $? "installing nodejs" &>> $LOG_FILE
+dnf install nodejs -y &>> $LOG_FILE
+VALIDATE $? "installing nodejs" 
 
-useradd expense
+useradd expense 
+VALIDATE $? "creating expense user"
