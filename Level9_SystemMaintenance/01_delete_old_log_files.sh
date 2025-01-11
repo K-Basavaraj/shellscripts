@@ -34,5 +34,5 @@ directory "$SOURCE_DIR"
 
 # find the files
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
-echo -n "Files: $FILES"
+echo -e "Files: \n$FILES"
 
