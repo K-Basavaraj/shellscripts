@@ -62,4 +62,12 @@ rm -rf /app/* # remove the existing code
 unzip /tmp/backend.zip &>>$LOG_FILE
 VALIDATE $? "Extracting backend application code"
 
-npm install &>>$LOG_FILE
+# For AWS Tier-2 instances:
+# 1. `dnf install npm -y`: Installs the npm tool globally on the system and sets up its configurations. 
+#    This is required for systems where npm isn't preinstalled or is improperly configured.
+# 2. `npm install`: Installs project-specific dependencies listed in package.json in the current directory.
+#    Requires npm to be globally installed first.
+dnf install npm -y  &>>$LOG_FILE
+VALIDATE $? "npm installation"
+
+npm install  &>>$LOG_FILE
