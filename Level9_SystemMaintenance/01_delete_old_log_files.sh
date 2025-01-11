@@ -31,3 +31,8 @@ read -p "Please enter the source Directory: " SOURCE_DIR
 
 # Check if the directory exists
 directory "$SOURCE_DIR"
+
+# find the files
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+echo "Files: $FILES"
+
