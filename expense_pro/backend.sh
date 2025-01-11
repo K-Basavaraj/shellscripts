@@ -27,20 +27,26 @@ echo -e "$Y script started executing at:$N $G $(date)$N" | tee -a $LOG_FILE
 VALIDATE() {
     if [ $1 -ne 0 ]; then
         echo -e "$R $2 is FAILLED.. PLEASE CHECKIT..$N" | tee -a $LOG_FILE
-        exit 1 
+        exit 1
     else
         echo -e "$G $2 is SUCESSFULL...$N" | tee -a $LOG_FILE
     fi
 }
 
-dnf module disable nodejs -y &>> $LOG_FILE
-VALIDATE $? "Disable defult nodesjs" 
+dnf module disable nodejs -y &>>$LOG_FILE
+VALIDATE $? "Disable defult nodesjs"
 
-dnf module enable nodejs:22 -y &>> $LOG_FILE 
-VALIDATE $? "Enabled nodejs:22" 
+dnf module enable nodejs:22 -y &>>$LOG_FILE
+VALIDATE $? "Enabled nodejs:22"
 
-dnf install nodejs -y &>> $LOG_FILE
-VALIDATE $? "installing nodejs" 
+dnf install nodejs -y &>>$LOG_FILE
+VALIDATE $? "installing nodejs"
 
-useradd expense 
-VALIDATE $? "creating expense user"
+id expense &>>$LOG_FILE
+if [ $? -ne 0 ]; then
+    echo -e "$R expense user not exit.. $Y CREATING $N" | tee -a $LOG_FILE
+    useradd expense
+    VALIDATE $? "creating expense user"
+else
+    echo -e "$R user expense already exist$N $Y..SKIPPING..$N" | tee -a $LOG_FILE
+fi
