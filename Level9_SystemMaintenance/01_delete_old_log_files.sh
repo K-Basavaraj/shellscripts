@@ -36,3 +36,9 @@ directory "$SOURCE_DIR"
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 echo -e "Files: \n$FILES"
 
+
+# delete the files which are old one by one for that we use loop
+while IFS= read -r file; do ##IFS,internal field seperatpor, empty it will ignore while space.                                       -r is for not to ingore special charecters like /
+    echo "Deleting file: $file"
+    rm -rf $file
+done <<<$FILES
