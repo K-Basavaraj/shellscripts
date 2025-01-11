@@ -50,3 +50,14 @@ if [ $? -ne 0 ]; then
 else
     echo -e "$R user expense already exist$N $Y..SKIPPING..$N" | tee -a $LOG_FILE
 fi
+
+mkdir -p /app 
+VALIDATE $? "creating /app directory"
+
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE
+VALIDATE $? "Downloading backend application code"
+
+cd /app
+rm -rf /app/* # remove the existing code
+unzip /tmp/backend.zip
+VALIDATE $? "Extracting backend application code"
