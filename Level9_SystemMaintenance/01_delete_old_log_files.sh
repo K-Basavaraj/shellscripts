@@ -26,8 +26,12 @@ directory() {
     fi
 }
 
-# Prompt for source directory input
-read -p "Please enter the source Directory: " SOURCE_DIR 
+
+# for crontab purpose dinamically given this path 
+SOURCE_DIR="/home/ec2-user/logs"
+
+# # Prompt for source directory input
+# read -p "Please enter the source Directory: " SOURCE_DIR 
 
 # Check if the directory exists
 directory "$SOURCE_DIR"
