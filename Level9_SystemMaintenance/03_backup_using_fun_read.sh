@@ -16,8 +16,8 @@ directory() {
 read -p "Enter the source directory, destination directory, and number of days (default is 14): " SOURCE_DIR DESTINATION_DIR NUM_OF_DAYS
 
 # Check if directories exist
-directory_exists "$SOURCE_DIR"
-directory_exists "$DESTINATION_DIR"
+directory "$SOURCE_DIR"
+directory "$DESTINATION_DIR"
 
 # Default value for NUM_OF_DAYS if left blank
 NUM_OF_DAYS=${NUM_OF_DAYS:-14}
