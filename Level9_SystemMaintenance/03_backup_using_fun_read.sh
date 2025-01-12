@@ -6,34 +6,45 @@ N="\e[0m"
 
 # Function to check if the directory exists
 directory() {
-    if [ -d "$1" ]; then
-        echo -e "$G $1  Exists $N"
-    else
+    if [ ! -d "$1" ]; then
         echo -e "$R $1 Does not Exist $N"
         exit 1
     fi
 }
+
 # Prompt the user for source directory, destination directory, and number of days
 read -p "Enter the source directory, destination directory, and number of days (default is 14): " SOURCE_DIR DESTINATION_DIR NUM_OF_DAYS
 
-# Check if the source directory exists
-directory "$SOURCE_DIR"
+# Check if directories exist
+directory_exists "$SOURCE_DIR"
+directory_exists "$DESTINATION_DIR"
 
-# Check if the destination directory exists
-directory "$DESTINATION_DIR"
-
-# Set default for NUM_OF_DAYS if left blank
+# Default value for NUM_OF_DAYS if left blank
 NUM_OF_DAYS=${NUM_OF_DAYS:-14}
 
-# Inform the user about the chosen value for number of days
-echo "Number of days to consider: $NUM_OF_DAYS"
-
-# Find files in the source directory older than the specified number of days
-FILES=$(find "${SOURCE_DIR}" -name "*.log" -mtime +$NUM_OF_DAYS)
+# Set variables
+DIR_NAME=$(basename "$SOURCE_DIR")
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
+FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +$NUM_OF_DAYS)
 echo -e "$Y Files: $FILES $N"
 
-if [ ! -z $FILES ]; then
+if [ ! -z "$FILES" ]; then
     echo "files are found"
+    ZIP_FILE="${DESTINATION_DIR}/${DIR_NAME}-${TIMESTAMP}.zip"
+    # Zip the found files
+    find "$SOURCE_DIR" -name "*.log" -mtime +$NUM_OF_DAYS | zip "$ZIP_FILE" -@
+    # Check if the zip file was created successfully
+    if [ -f "$ZIP_FILE" ]; then
+        echo -e "$G Successfully zipped files older than $NUM_OF_DAYS $N"
+        # Delete the original files
+        while IFS= read -r file; do
+            echo "Deleting file: $file"
+            rm -rf "$file"
+        done <<<"$FILES"
+    else
+        echo "Zipping the files failed"
+        exit 1
+    fi
 else
     echo "no files olderthan $NUM_OF_DAYS"
 fi
