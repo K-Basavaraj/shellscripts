@@ -1,8 +1,8 @@
 #!/bin/bash
-R="/e[31m"
-G="/e[32m"
-Y="/e[33m"
-N="/e[0m"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 # Function to check if the directory exists
 directory() {
@@ -29,7 +29,7 @@ NUM_OF_DAYS=${NUM_OF_DAYS:-14}
 echo "Number of days to consider: $NUM_OF_DAYS"
 
 # Find files in the source directory older than the specified number of days
-FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +$NUM_OF_DAYS)
+FILES=$(find "${SOURCE_DIR}" -name "*.log" -mtime +$NUM_OF_DAYS)
 echo -e "$Y Files: $FILES $N"
 
 if [ ! -z $FILES ]; then
