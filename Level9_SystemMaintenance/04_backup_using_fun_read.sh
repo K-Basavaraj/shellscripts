@@ -32,7 +32,7 @@ if [ ! -z "$FILES" ]; then
     echo "files are found"
     ZIP_FILE="${DESTINATION_DIR}/${DIR_NAME}-${TIMESTAMP}.zip"
     # Zip the found files
-    find "$SOURCE_DIR" -name "*.log" -mtime +$NUM_OF_DAYS | zip "$ZIP_FILE" -@
+    find $FILES | zip "$ZIP_FILE" -@
     # Check if the zip file was created successfully
     if [ -f "$ZIP_FILE" ]; then
         echo -e "$G Successfully zipped files older than $NUM_OF_DAYS $N"
