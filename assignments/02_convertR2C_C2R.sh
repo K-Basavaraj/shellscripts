@@ -23,4 +23,4 @@ echo "$MESSAGE" > "$FILE"
 
 # Transpose the contents of the file (rows to columns, columns to rows)
 echo "Transposed content: "
-awk '{ for (i=1; i<=NF; i++) a[i]= (a[i]? a[i] FS $i: $i) } END{ for (i in a) print a[i] }' file.txt
+awk '{ for (i=1; i<=NF; i++) a[i]= (a[i]? a[i] FS $i: $i) } END{ for (i in a) print a[i] }' $FILE
