@@ -25,7 +25,8 @@ if [[ ! -f "$FILE" ]]; then
 fi
 
 # Prompt the user for input and overwrite the file
-read -p -r "Enter your message: " MESSAGE
+echo -n "Enter your message: "
+read -r MESSAGE
 
 echo "$MESSAGE" > "$FILE" # Overwrite the file with the new input
 
