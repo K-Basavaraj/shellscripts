@@ -40,3 +40,14 @@ sort -nr | head -n 5                                                      # Sort
 
 # End message
 echo -e "$G Script executed succes $N"
+
+: '
+Enter your message: The quick brown fox jumps over the lazy dog. The fox is quick and the dog is sleepy.
+ Top 5 most frequent words:
+      4 the
+      2 quick
+      2 is
+      2 fox
+      2 dog
+ Script executed succes
+'
