@@ -21,9 +21,6 @@ read -r MESSAGE
 # Write the input message to the file
 echo "$MESSAGE" > "$FILE"
 
-# Read the content of the file into a temporary array
-content=$(cat "$FILE")
-
-# Use paste command to transpose the rows to columns
+# Transpose the contents of the file (rows to columns, columns to rows)
 echo "Transposed content: "
-echo "$content" | tr ' ' '\n' | paste -sd ' ' -
+awk '{ for (i=1; i<=NF; i++) a[i]= (a[i]? a[i] FS $i: $i) } END{ for (i in a) print a[i] }' file.txt
