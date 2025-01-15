@@ -21,6 +21,9 @@ read -r MESSAGE
 # Write the input message to the file
 echo "$MESSAGE" > "$FILE"
 
-# Transpose the contents of the file (rows to columns, columns to rows)
+# Read the content of the file into a temporary array
+content=$(cat "$FILE")
+
+# Use paste command to transpose the rows to columns
 echo "Transposed content: "
-paste -d ' ' -s "$FILE"
+echo "$content" | tr ' ' '\n' | paste -sd ' ' -
