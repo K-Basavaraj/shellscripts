@@ -14,12 +14,9 @@ if [[ ! -f "$FILE" ]]; then
   exit 1
 fi
 
-# Prompt the user for input and overwrite the file
-echo -n "Enter your message (with spaces between columns): "
-read -r MESSAGE
-
-# Write the input message to the file
-echo "$MESSAGE" > "$FILE"
+# Prompt the user for input and capture multiple lines
+echo "Enter the data (multiple lines, press Ctrl+D when done):"
+cat > "$FILE"
 
 # Transpose the contents of the file (rows to columns, columns to rows)
 echo "Transposed content: "
