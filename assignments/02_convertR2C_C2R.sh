@@ -1,5 +1,21 @@
 #!/bin/bash
 
+: '
+Convert Rows to Columns, Columns to Rows
+Given a text file file.txt, transpose its content.
+
+You may assume that each row has the same number of columns, and each field is separated by the space.
+
+Convert Rows into Columns and Columns into Rows
+input: 
+1 2 
+3 4
+5 6 
+output: 
+1 2 3 
+4 5 6
+'
+
 # Directory setup
 DIR="/home/ec2-user/user_folder/"
 mkdir -p $DIR
