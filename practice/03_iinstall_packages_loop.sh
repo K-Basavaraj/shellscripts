@@ -30,7 +30,7 @@ for package in $@; do
     if [ $? -ne 0 ]; then
         echo -e "$R $package is not installed..$N $Y going to install it..$N"
         dnf install $package -y
-        VALIDATE $? $package
+        VALIDATE $? "$package"
     else
         echo -e "$G $package is already installed nothing to do.."
     fi
