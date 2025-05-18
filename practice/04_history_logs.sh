@@ -14,7 +14,7 @@ mkdir -p $LOG_FOLDER
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 
 #create time stamp
-TIMESTAMP=$(data +%Y-%m-%d-%H-%M-%S)
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 
 #Now we need log file in the given formate by using above varaibles
 LOG_FILE="$LOG_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
@@ -36,9 +36,9 @@ if [ $# -eq 0 ]; then
     USAGE
 fi
 
-echo -e "$Y script started executing at $N: $G $(data)$N" | tee -a $LOG_FILE
+echo -e "$Y script started executing at $N: $G $(date) $N" | tee -a $LOG_FILE
 
-vALIDATE() {
+VALIDATE() {
     if [ $1 -ne 0 ]; then
         echo -e "$Y $2 $N $R is FAILED..PLEASE CHECK.." | tee -a $LOG_FILE
         exit 1
