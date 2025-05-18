@@ -1,0 +1,33 @@
+#!/bin/bash
+
+USER_ID=$(id -u)
+
+CHECK_ROOT() {
+    if [ $? -ne 0 ]; then
+        echo "please execute the script with root privilages.."
+        exit 1
+    fi
+}
+
+#calling function
+CHECK_ROOT
+
+#Validate wethere package is exist or not
+VALIDATE() {
+    if [ $1 -ne 0 ]; then
+        echo "$2 is not listed in this server.."
+    else
+        echo "$2 is SUCESSFULL.."
+    fi
+}
+
+dnf list installed nginx
+VALIDATE $? "Nginx"
+
+if [ $? -ne 0 ]; then
+    echo "Nginx is not installed, going to install it.."
+    dnf install nginx -y
+    validate $? "Nginx"  
+else
+    echo "Nginx is already installed nothing to do.."
+fi
