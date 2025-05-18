@@ -15,20 +15,18 @@ CHECK_ROOT
 #Validate wethere package is exist or not
 VALIDATE() {
     if [ $1 -ne 0 ]; then
-        echo "$2 is not listed in this server.."
+        echo "$2 is not listed in this server..."
         exit 1 
     else
-        echo "$2 is SUCESSFULL.."
+        echo "$2 is SUCESSFULLy Installed.."
     fi
 }
 
 dnf list installed nginx
-VALIDATE $? "Nginx"
-
 if [ $? -ne 0 ]; then
     echo "Nginx is not installed, going to install it.."
     dnf install nginx -y
-    validate $? "Nginx"  
+    validate $? "Nginx"  ##here i am calling the function 
 else
     echo "Nginx is already installed nothing to do.."
 fi
