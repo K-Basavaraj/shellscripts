@@ -3,7 +3,7 @@
 USER_ID=$(id -u)
 
 CHECK_ROOT() {
-    if [ $? -ne 0 ]; then
+    if [ $USER_ID -ne 0 ]; then
         echo "please execute the script with root privilages.."
         exit 1
     fi
