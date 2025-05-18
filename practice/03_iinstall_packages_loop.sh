@@ -25,12 +25,14 @@ VALIDATE() {
     fi
 }
 
-for package in $@; do
-    dnf list install $package
+
+
+for package in $@; do # $@ which is a sepecial varible  refers to all arguments passed to it
+    dnf list installed $package
     if [ $? -ne 0 ]; then
-        echo -e "$R $package is not installed..$N $Y going to install it..$N"
+        echo -e "$R $package is not installed..$N  $Y going to install it..$N"
         dnf install $package -y
-        VALIDATE $? "$package"
+        VALIDATE $? "Installing $package" # here i am calling validate function insted of Nested block in the condition concept
     else
         echo -e "$G $package is already installed nothing to do.."
     fi
