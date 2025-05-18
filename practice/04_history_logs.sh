@@ -40,10 +40,10 @@ echo -e "$Y script started executing at $N: $G $(date) $N" | tee -a $LOG_FILE
 
 VALIDATE() {
     if [ $1 -ne 0 ]; then
-        echo -e "$Y $2 $N $R is FAILED..PLEASE CHECK.." | tee -a $LOG_FILE
+        echo -e "$Y $2 $N $R is FAILED..PLEASE CHECK..$N" | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "$Y $2 $N $R IS SUCESSFULL.." | tee -a $LOG_FILE
+        echo -e "$Y $2 $N $G IS SUCESSFULL..$N" | tee -a $LOG_FILE
     fi
 }
 
