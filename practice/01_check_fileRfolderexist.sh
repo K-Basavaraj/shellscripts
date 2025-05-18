@@ -18,5 +18,5 @@ fi
 if [ -f $FILE ]; then 
  echo "$FILE exist.."
 else 
- eho "$FILE Doesnt exist.."
+ echo "$FILE Doesnt exist.."
 fi 
