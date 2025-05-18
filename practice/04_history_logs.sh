@@ -8,7 +8,7 @@ N="\e[0m"
 
 #create log folder called schell script name in the log path
 LOG_FOLDER="/var/log/shell_scripts"
-makdir -p $LOG_FOLDER
+mkdir -p $LOG_FOLDER
 
 #create which your curremt running script name
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
