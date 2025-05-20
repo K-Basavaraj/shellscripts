@@ -5,7 +5,7 @@ Y="\e[33m"
 N="\e[0m"
 
 DIRCTORY() {
-    if [! -d $1 ]; then
+    if [! -d "$1" ]; then
         echo -e "$R $1 Does not exit please check$N"
         exit 1
     fi
