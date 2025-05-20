@@ -6,7 +6,7 @@ N="\e[0m"
 
 DIRCTORY() {
     if [ ! -d "$1" ]; then
-        echo -e "$R $1 Does not exit please check$N"
+        echo -e "$R $1 file Does not exit which you given in the promt please check$N"
         exit 1
     fi
 }
@@ -25,4 +25,23 @@ DIRCTORY "$DESTINATION_DIR"
 source_dir_name=$(basename "$SOURCE_DIR")
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 FILES=$(find "$SOURCE_DIR" -name "*.log" -mtime +$NUM_OF_DAYS)
-echo -e "$Y Files: $FILES $N"
+echo -e "$Y Files $N: $F $FILES $N"
+
+if [ ! -z "$FILES" ]; then
+    echo "files are found"
+    ZIP_FILE="${DESTINATION_DIR}/${source_dir_name}-${TIMESTAMP}.zip" #in this formate
+    find $FILES | zip "$ZIP_FILE" -@
+    if [ -f "$ZIP_FILE" ]; then
+        echo -e "$G Successfully zipped files older than $NUM_OF_DAYS $N"
+        # Delete the original files
+        while IFS= read -r file; do
+            echo "Deleting file: $file"
+            rm -rf "$file"
+        done <<<"$FILES"
+    else
+        echo "Zipping the files failed"
+        exit 1
+    fi
+else
+    echo "no files older than $NUM_OF_DAYS"
+fi
